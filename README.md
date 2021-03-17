@@ -20,14 +20,22 @@
 #### 2.	New Route
 ทดลองสร้าง app และ route โดยให้นักศึกษาสร้างไฟล์ app.js และเขียนโค้ดดังนี้
 
-`const express = require('express')`
-`const app = express()`
-`app.get('/', (req, res) => {`
-`  res.send('Hello World')`
-`})`
-`app.listen(3000, () => {`
-`  console.log('Start server at port 3000.')`
-`})`
+const express = require('express')
+
+const app = express()
+
+app.get('/', (req, res) => {
+
+  res.send('Hello World')
+
+})
+
+app.listen(3000, () => {
+
+  console.log('Start server at port 3000.')
+
+})
+
 
 ทดลองดูผลลัพธ์ผ่านหน้าเว็บไซต์
 
@@ -38,7 +46,9 @@
 
 <code>
 npm install -g nodemon
+
 หรือ
+
 npm install --save-dev nodemon
 </code>
 
@@ -51,16 +61,23 @@ npm install --save-dev nodemon
 
 
 // ดึงข้อมูล json มาเก็บไว้ในตัวแปร
+
 const article = require('./article-db')
 
 // กำหนดให้ path blogapi แสดงข้อมูลบทความทั้งหมดในรูปแบบ json
+
 app.get('/blogapi', (req, res) => {
+
   res.json(article)
+
 })
 
 // กำหนดให้ path blogapi/id แสดงข้อมูลบทความตาม id ที่กำหนด
+
 app.get('/blogapi/:id', (req, res) => {
+
   res.json(article.find(article => article.id === req.params.id))
+  
 })
 
 
@@ -148,7 +165,6 @@ module.exports = router
 #### 8.	ทดลองการใช้ Include เพื่อเรียก header มาใช้งาน
 
 สร้างไฟล์ views/header.ejs ขึ้นมา นำโค้ดในบรรทัดแรกจนถึง </ head> ไปไว้ในไฟล์ header.ejs 
-
 และลบส่วนเดียวกันออกจากไฟล์ index.ejs และแทนที่ด้วย <%- include('header') -%>
 
 ----
