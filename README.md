@@ -20,21 +20,14 @@
 #### 2.	New Route
 ทดลองสร้าง app และ route โดยให้นักศึกษาสร้างไฟล์ app.js และเขียนโค้ดดังนี้
 
-const express = require('express')
-
-const app = express()
-
-app.get('/', (req, res) => {
-
-  res.send('Hello World')
-
-})
-
-app.listen(3000, () => {
-
-  console.log('Start server at port 3000.')
-
-})
+`const express = require('express')`
+`const app = express()`
+`app.get('/', (req, res) => {`
+`  res.send('Hello World')`
+`})`
+`app.listen(3000, () => {`
+`  console.log('Start server at port 3000.')`
+`})`
 
 ทดลองดูผลลัพธ์ผ่านหน้าเว็บไซต์
 
