@@ -20,7 +20,6 @@
 #### 2.	New Route
 ทดลองสร้าง app และ route โดยให้นักศึกษาสร้างไฟล์ app.js และเขียนโค้ดดังนี้
 
-<code>
 const express = require('express')
 const app = express()
 app.get('/', (req, res) => {
@@ -29,7 +28,7 @@ app.get('/', (req, res) => {
 app.listen(3000, () => {
   console.log('Start server at port 3000.')
 })
-</code>
+
 
 ทดลองดูผลลัพธ์ผ่านหน้าเว็บไซต์
 
@@ -50,18 +49,21 @@ npm install --save-dev nodemon
 #### 4. Introduct RESTFUL API
 ให้นักศึกษาดาวน์โหลดไฟล์ article-db.json วางบน main folder project
 แก้ไขไฟล์ app.js โดยเพิ่มข้อมูลดังนี้
-<code>
+
+
 // ดึงข้อมูล json มาเก็บไว้ในตัวแปร
 const article = require('./article-db')
+
 // กำหนดให้ path blogapi แสดงข้อมูลบทความทั้งหมดในรูปแบบ json
 app.get('/blogapi', (req, res) => {
   res.json(article)
 })
+
 // กำหนดให้ path blogapi/id แสดงข้อมูลบทความตาม id ที่กำหนด
 app.get('/blogapi/:id', (req, res) => {
   res.json(article.find(article => article.id === req.params.id))
 })
-</code>
+
 
 ทดลองดูได้ที่ http://localhost:3000/blogapi/ และ http://localhost:3000/blogapi/3
 
@@ -76,7 +78,7 @@ app.get('/blogapi/:id', (req, res) => {
 
 เปิดไฟล์ app.js และใส่โค้ด setup ด้านล่าง
 
-<code>
+``
 const path = require('path')
 
 // Setup ejs
@@ -90,11 +92,11 @@ app.use(express.static(path.join(__dirname, 'public')))
 // Config Router
 const indexRouter = require('./routes/index')
 app.use('/', indexRouter)
-</code>
+``
 
 หลังจากนั้นทดลองสร้าง route ย่อย โดยสร้างไฟล์ชื่อ index.js ในโฟลเดอร์ routes และใส่โค้ดดังนี้
 
-<code>
+
 const express = require('express')
 const router = express.Router()
 
@@ -104,7 +106,6 @@ router.get('/', function(req, res, next) {
 })
 
 module.exports = router
-</code>
 
 ----
 #### 6. ทดลองสร้างไฟล์ ejs เพื่อเรียกใช้งานจริง โดยให้แสดง data ที่ส่งเข้าไปในไฟล์
@@ -117,7 +118,7 @@ module.exports = router
 
 แก้ไขไฟล์ routes/index.js ดังนี้
 
-<code>
+
 const express = require('express')
 const router = express.Router()
  
@@ -129,17 +130,17 @@ router.get('/', function(req, res, next) {
 })
  
 module.exports = router
-</code>
+
 
 และเพิ่มโค้ดด้านล่างนี้ในไฟล์ views/index.ejs และปรับแก้ให้ถูกหลัก html
 
-<code>
+
     < ul>
       <% article.forEach(function(data, i, arr){ -%>
       < li><%= data.title %></ li>
       <? }); -?>
     </ ul>
-</code>
+
 
 ดูผลลัพธ์
 
@@ -156,7 +157,7 @@ module.exports = router
 ดาวน์โหลดไฟล์ที่กำหนดในใน /css ลงในโปรเจค 
 
 ทดลองเรียกใช้ css ให้เปิดไฟล์ header.ejs และเพิ่มโค้ดเรียก 
-< link rel='stylesheet' href='css/bulma.css' />
+<link rel='stylesheet' href='css/bulma.css' />
 
 ----
 
@@ -169,8 +170,8 @@ module.exports = router
 
 แสดงผลลัพธ์ได้ตามตัวอย่าง
 
-![ภาพแสดงหน้ารวมบทความ](/screenshort/q10-1.png)
-![ภาพแสดงหน้าข้อมูลแต่ละบทความ](/screenshort/q10-2.png)
+![ภาพแสดงหน้ารวมบทความ](screenshort/q10-1.png)
+![ภาพแสดงหน้าข้อมูลแต่ละบทความ](screenshort/q10-2.png)
 
 ----
 
@@ -178,7 +179,7 @@ module.exports = router
 
 แสดงผลลัพธ์ได้ตามตัวอย่าง
 
-![ภาพแสดงตัวอย่างการค้นหา](/screenshort/q11.png)
+![ภาพแสดงตัวอย่างการค้นหา](screenshort/q11.png)
 
 ----
 
@@ -186,4 +187,4 @@ module.exports = router
 
 แสดงผลลัพธ์ได้ตามตัวอย่าง
 
-![ภาพแสดงตัวอย่างการคอมเม้นต์](/screenshort/q12.png)
+![ภาพแสดงตัวอย่างการคอมเม้นต์](screenshort/q12.png)
