@@ -154,7 +154,7 @@ router.get('/', function(req, res, next) {
     var data = { title: 'Express', article: article }
 
     res.render('index', data)
-    
+
 })
  
 module.exports = router
@@ -200,8 +200,8 @@ module.exports = router
 
 แสดงผลลัพธ์ได้ตามตัวอย่าง
 
-![ภาพแสดงหน้ารวมบทความ](screenshort/q10-1.png)
-![ภาพแสดงหน้าข้อมูลแต่ละบทความ](screenshort/q10-2.png)
+![ภาพแสดงหน้ารวมบทความ](screenshot/q10-1.png)
+![ภาพแสดงหน้าข้อมูลแต่ละบทความ](screenshot/q10-2.png)
 
 ----
 
@@ -209,7 +209,7 @@ module.exports = router
 
 แสดงผลลัพธ์ได้ตามตัวอย่าง
 
-![ภาพแสดงตัวอย่างการค้นหา](screenshort/q11.png)
+![ภาพแสดงตัวอย่างการค้นหา](screenshot/q11.png)
 
 ----
 
@@ -217,4 +217,4 @@ module.exports = router
 
 แสดงผลลัพธ์ได้ตามตัวอย่าง
 
-![ภาพแสดงตัวอย่างการคอมเม้นต์](screenshort/q12.png)
+![ภาพแสดงตัวอย่างการคอมเม้นต์](screenshot/q12.png)
