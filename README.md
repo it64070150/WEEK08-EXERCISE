@@ -48,7 +48,6 @@ app.listen(3000, () => {
 npm install -g nodemon
 
 หรือ
-
 npm install --save-dev nodemon
 </code>
 
@@ -77,7 +76,7 @@ app.get('/blogapi', (req, res) => {
 app.get('/blogapi/:id', (req, res) => {
 
   res.json(article.find(article => article.id === req.params.id))
-  
+
 })
 
 
@@ -94,31 +93,40 @@ app.get('/blogapi/:id', (req, res) => {
 
 เปิดไฟล์ app.js และใส่โค้ด setup ด้านล่าง
 
-``
+
 const path = require('path')
 
 // Setup ejs
+
 app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'ejs');
 
 app.use(express.json())
+
 app.use(express.urlencoded({ extended: false }))
+
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Config Router
+
 const indexRouter = require('./routes/index')
+
 app.use('/', indexRouter)
-``
 
 หลังจากนั้นทดลองสร้าง route ย่อย โดยสร้างไฟล์ชื่อ index.js ในโฟลเดอร์ routes และใส่โค้ดดังนี้
 
 
 const express = require('express')
+
 const router = express.Router()
 
 router.get('/', function(req, res, next) {
+
     var data = { title: 'Express' }
+
     res.render('index', data)
+
 })
 
 module.exports = router
@@ -136,13 +144,17 @@ module.exports = router
 
 
 const express = require('express')
+
 const router = express.Router()
  
 var article = require('../article-db')
 
 router.get('/', function(req, res, next) {
+
     var data = { title: 'Express', article: article }
+
     res.render('index', data)
+    
 })
  
 module.exports = router
