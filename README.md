@@ -21,14 +21,20 @@
 ทดลองสร้าง app และ route โดยให้นักศึกษาสร้างไฟล์ app.js และเขียนโค้ดดังนี้
 
 const express = require('express')
+
 const app = express()
+
 app.get('/', (req, res) => {
+
   res.send('Hello World')
-})
-app.listen(3000, () => {
-  console.log('Start server at port 3000.')
+
 })
 
+app.listen(3000, () => {
+
+  console.log('Start server at port 3000.')
+
+})
 
 ทดลองดูผลลัพธ์ผ่านหน้าเว็บไซต์
 
@@ -148,7 +154,9 @@ module.exports = router
 
 #### 8.	ทดลองการใช้ Include เพื่อเรียก header มาใช้งาน
 
-สร้างไฟล์ views/header.ejs ขึ้นมา นำโค้ดในบรรทัดแรกจนถึง </ head> ไปไว้ในไฟล์ header.ejs และลบส่วนเดียวกันออกจากไฟล์ index.ejs และแทนที่ด้วย <%- include('header') -%>
+สร้างไฟล์ views/header.ejs ขึ้นมา นำโค้ดในบรรทัดแรกจนถึง </ head> ไปไว้ในไฟล์ header.ejs 
+
+และลบส่วนเดียวกันออกจากไฟล์ index.ejs และแทนที่ด้วย <%- include('header') -%>
 
 ----
 
@@ -157,6 +165,7 @@ module.exports = router
 ดาวน์โหลดไฟล์ที่กำหนดในใน /css ลงในโปรเจค 
 
 ทดลองเรียกใช้ css ให้เปิดไฟล์ header.ejs และเพิ่มโค้ดเรียก 
+
 <link rel='stylesheet' href='css/bulma.css' />
 
 ----
