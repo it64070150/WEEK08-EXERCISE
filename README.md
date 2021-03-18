@@ -1,24 +1,26 @@
 # Web Programming - Exercise 8
 
 #### 1. New Project
-ให้นักศึกษาสร้างโปรเจคชื่อ `youblog` โดยมีวิธีการดังนี้
-
-1. เปิด Terminal / Command Line
-2. cd Desktop
-3. mkdir youblog
-4. cd youblog
-5. npm init
-
+ให้นักศึกษาสร้างโปรเจคชื่อ `youblog` โดยพิมพ์คำสั่งเหล่านี้ลงใน Terminal/Powershell ดังนี้
+```
+> cd Desktop
+> mkdir youblog
+> cd youblog
+> npm init
+```
 ในขั้นตอนการ init ให้กำหนดดังนี้
 - Package name : youblog
 ส่วนอื่น ๆ ให้กด Enter ได้เลย
 
-6. หลังจากนั้นให้พิมพ์ npm install express เพื่อลง Express
-
+**หลังจากนั้น install express โดยพิมพ์:**
+```
+> npm install express
+```
 ----
 
 #### 2.	New Route
 ทดลองสร้าง app และ route โดยให้นักศึกษาสร้างไฟล์ app.js และเขียนโค้ดดังนี้
+```javascript
 
 const express = require('express')
 
@@ -36,22 +38,33 @@ app.listen(3000, () => {
 
 })
 
+```
 
-ทดลองดูผลลัพธ์ผ่านหน้าเว็บไซต์
+Start server โดยพิมพ์คำสั่ง:
+```
+> node app.js
+```
+
+ทดลองดูผลลัพธ์ผ่านหน้าเว็บไซต์ โดยพิมพ์ localhost:3000 ในช่อง URL ของ Web Browser
 
 ----
 
-#### 3.	Introduce Nodemon
+#### 3.	Let's use Nodemon
 เนื่องจากการแก้ไขไฟล์ทุกครั้ง เมื่อมีการแก้เราต้องทำการรัน node ใหม่ทุกครั้ง เราจะติดตั้ง nodemon เพื่อให้มีการ restart ไฟล์ใหม่ทุกครั้งที่มีการเปลี่ยนแปลง โดยให้ติดตั้งดังนี้
 
-<code>
-npm install -g nodemon
+```
+> npm install -g nodemon
 
 หรือ
-npm install --save-dev nodemon
-</code>
+
+> npm install --save-dev nodemon
+````
 
 และทดลองใช้โดยเรียกคำสั่ง nodemon app
+
+```
+> nodemon app.js
+```
 
 ----
 #### 4. Introduct RESTFUL API
