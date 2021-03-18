@@ -180,11 +180,11 @@ module.exports = router
 และเพิ่มโค้ดด้านล่างนี้ในไฟล์ views/index.ejs และปรับแก้ให้ถูกหลัก html
 
 ```html
-    < ul>
+    <ul>
       <% article.forEach(function(data, i, arr){ %>
-      < li><%= data.title %></ li>
+      <li><%= data.title %></li>
       <? }); ?>
-    </ ul>
+    </ul>
 ```
 
 ----
