@@ -214,7 +214,7 @@ module.exports = router
 ##### 10.1. หน้าแสดงรายการบทความทั้งหมด (ภาพที่ 1)
 โดยมีข้อกำหนดดังนี้
 - แสดงผลที่ path: http://localhost:3000/
-- ปรับแก้ไขไฟล์ views/index.ejs
+- ปรับแก้ไขไฟล์ views/index.ejs โดยนำไฟล์ใน folder html/ex10-index.html (บน Github) มาปรับใช้
 - 1 แถวแสดง 4 บทความ
 - แต่ละ Card บทความแสดงรูปภาพ ชื่อบทความ และ ชื่อผู้เขียน
 
@@ -224,7 +224,7 @@ module.exports = router
 ##### 10.2. หน้าแสดงรายละเอียดของบทความ (ภาพที่ 2)
 โดยมีข้อกำหนดดังนี้
 - แสดงผลที่ path: http://localhost:3000/:id/
-- สร้างไฟล์ views/detail.ejs โดยนำไฟล์ใน Github folder html/ex10-content.html มาปรับใช้
+- สร้างไฟล์ views/detail.ejs โดยนำไฟล์ใน Github folder html/ex10-content.html (บน Github) มาปรับใช้
 - แสดงข้อมูลขอองบทความดังในภาพที่ 2
 - กรณีเรียก /blog/:id โดยระบุ id ที่หาข้อมูลไม่พบให้แสดงข้อความ Error "ไม่พบบทความ" ใน views/detail.ejs
 
