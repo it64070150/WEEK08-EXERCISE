@@ -67,11 +67,11 @@ Start server โดยพิมพ์คำสั่ง:
 ```
 
 ----
-#### 4. Introduct RESTFUL API
+#### 4. Create your first RESTFUL API
 ให้นักศึกษาดาวน์โหลดไฟล์ article-db.json วางบน main folder project
-แก้ไขไฟล์ app.js โดยเพิ่มข้อมูลดังนี้
+จากนั้นแก้ไขไฟล์ app.js โดยเพิ่มข้อมูลดังนี้
 
-
+```javascript
 // ดึงข้อมูล json มาเก็บไว้ในตัวแปร
 
 const article = require('./article-db')
@@ -91,45 +91,46 @@ app.get('/blogapi/:id', (req, res) => {
   res.json(article.find(article => article.id === req.params.id))
 
 })
-
+```
 
 ทดลองดูได้ที่ http://localhost:3000/blogapi/ และ http://localhost:3000/blogapi/3
 
 ---
-#### 5. 	Introduce Template Engine (ejs)
+#### 5. EJS Template Engine
 `npm install ejs`
 
 สร้างโฟลเดอร์ใหม่ 3 โฟลเดอร์ ดังนี้
 - public (สำหรับเก็บไฟล์ Asset ต่าง ๆ)
-- routes ( สำหรับเก็บ app ย่อย ๆ เพื่อจัดการหน้าเพจในหมวดต่าง ๆ)
+- routes (สำหรับเก็บ app ย่อย ๆ เพื่อจัดการหน้าเพจในหมวดต่าง ๆ)
 - views (สำหรับเก็บไฟล์ template ejs ที่ใช้เรียกแสดงผล) 
 
 เปิดไฟล์ app.js และใส่โค้ด setup ด้านล่าง
 
-
+```javascript
 const path = require('path')
 
 // Setup ejs
+app.set('view engine', 'ejs');
 
 app.set('views', path.join(__dirname, 'views'));
 
-app.set('view engine', 'ejs');
-
+// Encode request body
 app.use(express.json())
 
 app.use(express.urlencoded({ extended: false }))
 
+// Setup static path
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Config Router
-
 const indexRouter = require('./routes/index')
 
 app.use('/', indexRouter)
+```
 
 หลังจากนั้นทดลองสร้าง route ย่อย โดยสร้างไฟล์ชื่อ index.js ในโฟลเดอร์ routes และใส่โค้ดดังนี้
 
-
+```javascript
 const express = require('express')
 
 const router = express.Router()
@@ -143,11 +144,14 @@ router.get('/', function(req, res, next) {
 })
 
 module.exports = router
+```
 
 ----
 #### 6. ทดลองสร้างไฟล์ ejs เพื่อเรียกใช้งานจริง โดยให้แสดง data ที่ส่งเข้าไปในไฟล์
-
-ให้นักศึกษาสร้างไฟล์ index.ejs ในโฟลเดอร์ views และนำโค้ดจากไฟล์ index-ejs.html ใส่ในไฟล์ index.ejs ในโปรเจคของเรา และ และลองเปิดหน้าเว็บไซต์ localhost:3000
+ทำตามขั้นตอนดังนี้
+1. สร้างไฟล์ index.ejs ในโฟลเดอร์ views 
+2. นำโค้ดจากไฟล์ index-ejs.html ใส่ในไฟล์ index.ejs ในโปรเจคของเรา 
+3. ลองเปิดหน้าเว็บไซต์ localhost:3000
 
 ----
 
@@ -155,7 +159,7 @@ module.exports = router
 
 แก้ไขไฟล์ routes/index.js ดังนี้
 
-
+```javascript
 const express = require('express')
 
 const router = express.Router()
@@ -171,44 +175,45 @@ router.get('/', function(req, res, next) {
 })
  
 module.exports = router
-
+```
 
 และเพิ่มโค้ดด้านล่างนี้ในไฟล์ views/index.ejs และปรับแก้ให้ถูกหลัก html
 
-
+```html
     < ul>
-      <% article.forEach(function(data, i, arr){ -%>
+      <% article.forEach(function(data, i, arr){ %>
       < li><%= data.title %></ li>
-      <? }); -?>
+      <? }); ?>
     </ ul>
-
-
-ดูผลลัพธ์
+```
 
 ----
 
-#### 8.	ทดลองการใช้ Include เพื่อเรียก header มาใช้งาน
+#### 8.	จัด layout ของหน้าเวบด้วย include
 
-สร้างไฟล์ views/header.ejs ขึ้นมา นำโค้ดในบรรทัดแรกจนถึง </ head> ไปไว้ในไฟล์ header.ejs 
-และลบส่วนเดียวกันออกจากไฟล์ index.ejs และแทนที่ด้วย <%- include('header') -%>
+ทำตามขั้นตอนดังนี้:
+1. สร้างไฟล์ views/header.ejs ขึ้นมา
+2. นำโค้ดในบรรทัดแรกจนถึง </ head> ไปไว้ในไฟล์ header.ejs 
+3. ลบส่วนเดียวกันออกจากไฟล์ index.ejs และแทนที่ด้วย <%- include('header') -%>
 
 ----
 
-#### 9.	ทดลองการดึง static file
+#### 9.	ลองใช้งาน static file
 
 ดาวน์โหลดไฟล์ที่กำหนดในใน /css ลงในโปรเจค 
 
 ทดลองเรียกใช้ css ให้เปิดไฟล์ header.ejs และเพิ่มโค้ดเรียก 
-
+```
 <link rel='stylesheet' href='css/bulma.css' />
+```
 
 ----
 
-#### [โจทย์] 10. ให้นักศึกษาสร้างหน้าเว็บบล็อกหน้าแรก และหน้าแสดงข้อมูลแต่ละบทความ โดยแสดงข้อมูลบทความนั้น ๆ โดยใช้ id
+#### [โจทย์] 10. ให้นักศึกษาสร้างหน้าเว็บ YouBlog หน้าแรกแสดงรายการบทความทั้งหมด และหน้าแสดงข้อมูลแต่ละบทความ โดยแสดงข้อมูลบทความนั้น ๆ โดยใช้ id
 
 มีข้อกำหนดดังนี้
 - หน้าแรกแสดงผ่าน path /
-- หน้าบทความแสดงผ่าน path /blog/id
+- หน้าบทความแสดงผ่าน path /blog/:id
 - กรณีเข้าหน้า /blog โดยไม่ระบุ id ให้แสดง Error
 
 แสดงผลลัพธ์ได้ตามตัวอย่าง
