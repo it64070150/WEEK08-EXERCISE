@@ -177,7 +177,7 @@ router.get('/', function(req, res, next) {
 module.exports = router
 ```
 
-และเพิ่มโค้ดด้านล่างนี้ในไฟล์ views/index.ejs และปรับแก้ให้ถูกหลัก html
+และเพิ่มโค้ดด้านล่างนี้ในไฟล์ views/index.ejs
 
 ```html
     <ul>
