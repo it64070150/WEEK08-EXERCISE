@@ -27,15 +27,11 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-
   res.send('Hello World')
-
 })
 
 app.listen(3000, () => {
-
   console.log('Start server at port 3000.')
-
 })
 
 ```
@@ -80,17 +76,13 @@ const article = require('./article-db')
 // กำหนดให้ path blogapi แสดงข้อมูลบทความทั้งหมดในรูปแบบ json
 
 app.get('/blogapi', (req, res) => {
-
   res.json(article)
-
 })
 
 // กำหนดให้ path blogapi/id แสดงข้อมูลบทความตาม id ที่กำหนด
 
 app.get('/blogapi/:id', (req, res) => {
-
   res.json(article.find(article => article.id === req.params.id))
-
 })
 ```
 
@@ -112,7 +104,6 @@ const path = require('path')
 
 // Setup ejs
 app.set('view engine', 'ejs');
-
 app.set('views', path.join(__dirname, 'views'));
 
 // Setup static path
@@ -128,15 +119,11 @@ app.use('/', indexRouter)
 
 ```javascript
 const express = require('express')
-
 const router = express.Router()
 
 router.get('/', function(req, res, next) {
-
     var data = { title: 'Express' }
-
     res.render('index', data)
-
 })
 
 module.exports = router
@@ -157,15 +144,11 @@ module.exports = router
 
 ```javascript
 const express = require('express')
-
 const router = express.Router()
- 
 var article = require('../article-db')
 
 router.get('/', function(req, res, next) {
-
     var data = { title: 'Express', article: article }
-
     res.render('index', data)
 
 })
