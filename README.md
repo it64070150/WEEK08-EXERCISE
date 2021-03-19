@@ -179,7 +179,7 @@ module.exports = router
     <ul>
       <% article.forEach(function(data, i, arr){ %>
       <li><%= data.title %></li>
-      <? }); ?>
+      <% }); %>
     </ul>
 ```
 
