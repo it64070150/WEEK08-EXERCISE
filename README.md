@@ -204,7 +204,7 @@ module.exports = router
 
 ทดลองเรียกใช้ css ให้เปิดไฟล์ header.ejs และเพิ่มโค้ดเรียก 
 ```
-<link rel='stylesheet' href='css/bulma.css' />
+<link rel='stylesheet' href='/css/bulma.css' />
 ```
 
 ----
@@ -223,7 +223,7 @@ module.exports = router
 
 ##### 10.2. หน้าแสดงรายละเอียดของบทความ (ภาพที่ 2)
 โดยมีข้อกำหนดดังนี้
-- แสดงผลที่ path: http://localhost:3000/:id/
+- แสดงผลที่ path: http://localhost:3000/blog/:id/
 - สร้างไฟล์ views/detail.ejs โดยนำไฟล์ใน Github folder html/ex10-content.html (บน Github) มาปรับใช้
 - แสดงข้อมูลขอองบทความดังในภาพที่ 2
 - กรณีเรียก /blog/:id โดยระบุ id ที่หาข้อมูลไม่พบให้แสดงข้อความ Error "ไม่พบบทความ" ใน views/detail.ejs
