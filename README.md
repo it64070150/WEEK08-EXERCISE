@@ -64,6 +64,7 @@ Start server โดยพิมพ์คำสั่ง:
 
 ```
 > nodemon app.js
+> node_modules\.bin\nodemon app.js
 ```
 
 ----
