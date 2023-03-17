@@ -54,6 +54,7 @@ Start server โดยพิมพ์คำสั่ง:
 หรือ
 
 > npm install --save-dev nodemon
+
 ````
 
 และทดลองใช้โดยเรียกคำสั่ง nodemon app
@@ -61,6 +62,10 @@ Start server โดยพิมพ์คำสั่ง:
 ```
 > nodemon app.js
 > node_modules\.bin\nodemon app.js
+
+หรือไม่ต้องติดตั้ง nodemon แต่ใช้ npx ในการใช้งาน nodemon
+
+> npx nodemon app.js
 ```
 
 ----
